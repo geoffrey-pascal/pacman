@@ -340,7 +340,7 @@ function getGCPCloudMetadata(callback) {
 function getK8sCloudMetadata(callback) {
     console.log('getK8sCloudMetadata');
     // Set options to retrieve k8s api information
-    var node_name = process.env.MY_NODE_NAME;
+    var node_name = os.hostname();
     console.log('Querying ' + node_name + ' for cloud data');
 
     try {
@@ -355,7 +355,7 @@ function getK8sCloudMetadata(callback) {
     };
 
     var genericOptions = {
-        host: 'kubernetes.default.svc',
+        host: process.env.KUBERNETES_PORT_443_TCP_ADDR,
         port: 443,
         path: `/api/v1/nodes/${node_name}`,
         timeout: 10000,
