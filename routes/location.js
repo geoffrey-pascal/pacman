@@ -345,6 +345,8 @@ function getK8sCloudMetadata(callback) {
 
     try {
         var sa_token = fs.readFileSync('/var/run/secrets/kubernetes.io/serviceaccount/token');
+        console.log("SA TOKEN");
+        console.log(sa_token);
         var ca_file = fs.readFileSync('/var/run/secrets/kubernetes.io/serviceaccount/ca.crt');
     } catch (err) {
         console.log(err)
