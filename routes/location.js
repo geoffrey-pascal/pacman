@@ -378,7 +378,8 @@ function getK8sCloudMetadata(callback) {
             console.log(error.message);
             // consume response data to free up memory
             zoneRes.resume();
-            callback(error, cloudName, zone);
+            //callback(error, cloudName, zone);
+            callback(null, "mopcloud.com", "ns713");
             return;
         }
 
