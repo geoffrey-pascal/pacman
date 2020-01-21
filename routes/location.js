@@ -345,17 +345,19 @@ function getK8sCloudMetadata(callback) {
 
     try {
         var sa_token = fs.readFileSync('/var/run/secrets/kubernetes.io/serviceaccount/token');
-        sa_token = sa_token.toString();
+        var sa_token_string = sa_token.toString();
         console.log("SA TOKEN");
-        console.log();
+        console.log(sa_token_string);
         var ca_file = fs.readFileSync('/var/run/secrets/kubernetes.io/serviceaccount/ca.crt');
     } catch (err) {
         console.log(err)
     }
 
     var headers = {
-        'Authorization': `Bearer ${sa_token}`
+        'Authorization': `Bearer ${sa_token_string}`
     };
+
+    console.log(headers);
 
     var genericOptions = {
         host: process.env.KUBERNETES_PORT_443_TCP_ADDR,
