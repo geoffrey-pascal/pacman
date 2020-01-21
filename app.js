@@ -5,6 +5,8 @@ var path = require('path');
 var Database = require('./lib/database');
 var assert = require('assert');
 
+console.log(process.env);
+
 // Constants
 
 // Routes
