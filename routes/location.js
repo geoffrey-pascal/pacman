@@ -384,8 +384,7 @@ function getK8sCloudMetadata(callback) {
             console.log(error.message);
             // consume response data to free up memory
             zoneRes.resume();
-            //callback(error, cloudName, zone);
-            callback(null, "mopcloud.com", "ns713");
+            callback(error, cloudName, zone);
             return;
         }
 
@@ -400,7 +399,7 @@ function getK8sCloudMetadata(callback) {
         });
         zoneRes.on('end', () => {
             var metaData = JSON.parse(body.join(''));
-            console.log(`RESULT: ${metaData}`);
+            console.log(`RESULT: ${JSON.stringify(metaData)}`);
             console.log('No more data in response.');
 
             if (metaData.spec.providerID) {
