@@ -340,7 +340,8 @@ function getGCPCloudMetadata(callback) {
 function getK8sCloudMetadata(callback) {
     console.log('getK8sCloudMetadata');
     // Set options to retrieve k8s api information
-    var node_name = os.hostname();
+    //var node_name = os.hostname();
+    var node_name = "ocplab"
     console.log('Querying ' + node_name + ' for cloud data');
 
     try {
